@@ -9,7 +9,7 @@ try{
 
     print "スタッフ一覧<br /><br />";
 
-    print "<form method='post' action='staff_edit.php' ></form>";
+    print "<form method='post' action='staff_edit.php' >";
     while(true){
         $rec = $stmt->fetch(PDO::FETCH_ASSOC);
         if($rec == false){
@@ -21,7 +21,7 @@ try{
         
     }
 
-    print '<input type="submit">';
+    print '<input type="submit" value="修正">';
     print '</form>';
 } catch(Exception $e) {
     print "ただいま障害により大変ご迷惑をおかけしております。";
