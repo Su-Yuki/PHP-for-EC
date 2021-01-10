@@ -7,7 +7,6 @@ $staff_name = $_POST["name"];
 $staff_pass = $_POST["pass"];
 
 try{
-
 $stmt = $dbh->prepare('UPDATE mst_staff SET name = ?, password = ? WHERE code = ?');
 $stmt->execute([$staff_name, $staff_pass, $staff_code]); 
 
