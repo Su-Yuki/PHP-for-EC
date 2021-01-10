@@ -5,7 +5,6 @@ require_once('function.php');
 $staff_code = $_POST["code"];
 $staff_name = $_POST["name"];
 $staff_pass = $_POST["pass"];
-var_dump($staff_code);exit;
 
 try{
 $stmt = $dbh->prepare('UPDATE mst_staff SET name = ?, password = ? WHERE code = ?');
