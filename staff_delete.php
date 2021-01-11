@@ -1,17 +1,16 @@
 <?php
 require_once('dbconnect.php');
 require_once('function.php');
-// var_dump($_POST['staffcode']);
 
 try{
     $staff_code = $_GET['staffcode'];
 
     $stmt = $dbh->prepare('SELECT name FROM mst_staff WHERE code = ? ');
-    $data[] = $staff_code;// var_dump($data);
+    $data[] = $staff_code;
     $stmt->execute($data);
 
-    $rec = $stmt->fetch(PDO::FETCH_ASSOC);// var_dump($rec);
-    $staff_name = $rec['name'];// var_dump($rec['name']);
+    $rec = $stmt->fetch(PDO::FETCH_ASSOC);
+    $staff_name = $rec['name'];
 
 
 } catch(Exception $e) {
@@ -28,12 +27,15 @@ try{
     <title>Document</title>
 </head>
 <body>
-    <p>スタッフ修正</p>
+    <p>スタッフ削除</p>
     <br>
     <?php print $staff_code;?>
     <br>
+    <p>スタッフ名</p>
+    <?php print $staff_name;?>
+    <p>このスタッフを削除してもよろしいですか</p>
     <br>
-    <form action="staff_edit_check.php" method="POST">
+    <form action="staff_delete_done.php" method="POST">
         <input type="hidden" name="code" value="<?php echo $staff_code; ?>">
         <p>スタッフ名</p>
         <input type="text" name="name" style="width:200px" value="<?php echo $staff_name?>">
