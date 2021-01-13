@@ -4,7 +4,6 @@ require_once('function.php');
 
 $staff_code = $_POST["code"];
 
-
 try{
 $stmt = $dbh->prepare('DELETE FROM mst_staff WhERE code = ?');
 $stmt->execute([$staff_code]); 
