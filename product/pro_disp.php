@@ -1,18 +1,18 @@
 <?php
 require_once('../common/dbconnect.php');
 require_once('../common/function.php');
-// var_dump($_POST['staffcode']);
+// var_dump($_POST['procode']);
 
 try{
-    $staff_code = $_GET['staffcode'];
+    $pro_code = $_GET['procode'];
 
-    $stmt = $dbh->prepare('SELECT name FROM mst_staff WHERE code = ? ');
-    $data[] = $staff_code;// var_dump($data);
+    $stmt = $dbh->prepare('SELECT name, price FROM mst_product WHERE code = ? ');
+    $data[] = $pro_code;
     $stmt->execute($data);
 
-    $rec = $stmt->fetch(PDO::FETCH_ASSOC);// var_dump($rec);
-    $staff_name = $rec['name'];// var_dump($rec['name']);
-
+    $rec = $stmt->fetch(PDO::FETCH_ASSOC);
+    $pro_name = $rec['name'];
+    $pro_price = $rec['price'];
 
 } catch(Exception $e) {
     exit();
@@ -28,11 +28,14 @@ try{
     <title>Document</title>
 </head>
 <body>
-    <p>スタッフ情報</p>
-    <?php print $staff_code;?>
+    <p>商品コード</p>
+    <?php print $pro_code;?>
     <br>
-    <p>スタッフ名</p>
-    <?php print $staff_name; ?>
+    <p>商品名</p>
+    <?php print $pro_name; ?>
+    <br>
+    <p>価格</p>
+    <?php print $pro_price; ?>
     <br>
     <form>
         <input type="button" onclick="history.back()" value="戻る">

@@ -1,15 +1,17 @@
 <?php
+//共通
 require_once('../common/dbconnect.php');
 require_once('../common/function.php');
 
-$staff_code = $_POST["code"];
-$staff_name = $_POST["name"];
-$staff_pass = $_POST["pass"];
+$pro_name = $_POST["name"];
+$pro_price = $_POST["price"];
 
+// DBへのデータ保存
 try{
-$stmt = $dbh->prepare('UPDATE mst_staff SET name = ?, password = ? WHERE code = ?');
-$stmt->execute([$staff_name, $staff_pass, $staff_code]); 
+$stmt = $dbh->prepare('INSERT INTO mst_product (name, price) VALUES (?, ?)');
+$stmt->execute([$pro_name, $pro_price]);//?を変数に置き換えてSQLを実行
 
+print "$pro_name を追加しました。";
 } catch(Exception $e){
     print 'エラーが発生しました';
     exit();
@@ -25,6 +27,6 @@ $stmt->execute([$staff_name, $staff_pass, $staff_code]);
     <title>Document</title>
 </head>
 <body>
-    <a href="staff_list.php">戻る</a>
+    <a href="pro_list.php">戻る</a>
 </body>
 </html>

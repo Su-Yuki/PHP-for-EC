@@ -1,6 +1,6 @@
 <?php
-require_once('dbconnect.php');
-require_once('function.php');
+require_once('../common/dbconnect.php');
+require_once('../common/function.php');
 
 $staff_code = $_POST["code"];
 

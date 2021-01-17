@@ -1,6 +1,6 @@
 <?php
-require_once('dbconnect.php');
-require_once('function.php');
+require_once('../common/dbconnect.php');
+require_once('../common/function.php');
 
 try{
     $staff_code = $_GET['staffcode'];

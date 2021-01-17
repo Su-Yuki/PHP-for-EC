@@ -1,7 +1,7 @@
 <?php
 //共通
-require_once('dbconnect.php');
-require_once('function.php');
+require_once('../common/dbconnect.php');
+require_once('../common/function.php');
 
 //データ受け取り
 $staff_name = $_POST["name"];
