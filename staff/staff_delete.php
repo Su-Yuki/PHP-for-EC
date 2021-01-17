@@ -27,24 +27,17 @@ try{
     <title>Document</title>
 </head>
 <body>
-    <p>スタッフ削除</p>
+    <h3>スタッフ削除</h3>
     <br>
     <?php print $staff_code;?>
-    <br>
     <p>スタッフ名</p>
     <?php print $staff_name;?>
     <p>このスタッフを削除してもよろしいですか</p>
-    <br>
     <form action="staff_delete_done.php" method="POST">
         <input type="hidden" name="code" value="<?php echo $staff_code; ?>">
         <p>スタッフ名</p>
         <input type="text" name="name" style="width:200px" value="<?php echo $staff_name?>">
         <br>
-        <p>パスワードを入力してください</p>
-        <input type="password" name="pass" style="width: 100px">
-        <br>
-        <p>パスワードをもう一度入力してください</p>
-        <input type="password" name="pass2" style="width: 100px">
         <br>
         <input type="button" onclick="history.back()" value="戻る">
         <input type="submit" value="OK">
