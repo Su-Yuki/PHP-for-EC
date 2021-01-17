@@ -1,11 +1,11 @@
 <?php
 if(isset($_POST['disp'])==true){
-    if(isset($_POST['pro__code'])==false){
+    if(isset($_POST['pro_code'])==false){
         header('Location:pro_ng.php');
         exit();
     }
-    $pro__code = $_POST['pro_code'];
-    header('Location:pro_disp.php?pro_code='.$pro__code);
+    $pro_code = $_POST['pro_code'];
+    header('Location:pro_disp.php?pro_code='.$pro_code);
     exit();
 }
 
@@ -20,8 +20,8 @@ if(isset($_POST['edit'])==true){
         header('Location:pro_ng.php');
         exit();
     }
-    $pro__code = $_POST['pro_code'];
-    header('Location:pro_edit.php?pro_code='.$pro__code);
+    $pro_code = $_POST['pro_code'];
+    header('Location:pro_edit.php?pro_code='.$pro_code);
     exit();
 }
 
@@ -30,8 +30,8 @@ if(isset($_POST['delete'])==true){
         header('Location:pro_ng.php');
         exit();
     }
-    $pro__code = $_POST['pro_code'];
-    header('Location:pro_delete.php?pro_code='.$pro__code);
+    $pro_code = $_POST['pro_code'];
+    header('Location:pro_delete.php?pro_code='.$pro_code);
     exit();
 }
 

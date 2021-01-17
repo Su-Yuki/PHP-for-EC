@@ -13,7 +13,7 @@ require_once('../common/function.php');
 </head>
 <body>
     <h1>商品追加</h1>
-    <form action="pro_add_check.php" method="POST">
+    <form action="pro_add_check.php" enctype="multipart/form-data" method="POST">
         <!-- 追加 -->
         <p>商品名を入力してください</p>
         <label for="name">商品名</label>
@@ -25,6 +25,9 @@ require_once('../common/function.php');
         <label for="price">価格</label>
         <input type="text" name="price" style="width:50px">
         <br>
+        <br>
+        <p>画像を選んでください</p>
+        <input type="file" name="gazou" style="width:400px">
         <br>
         <input type="button" onclick="history.back()" value="戻る">
         <input type="submit" value="OK">

@@ -4,19 +4,28 @@ require_once('../common/function.php');
 // var_dump($_POST['procode']);
 
 try{
-    $pro_code = $_GET['procode'];
+    $pro_code = $_GET['pro_code'];
 
-    $stmt = $dbh->prepare('SELECT name, price FROM mst_product WHERE code = ? ');
+    $stmt = $dbh->prepare('SELECT name, price, gazou FROM mst_product WHERE code = ? ');
     $data[] = $pro_code;
     $stmt->execute($data);
 
     $rec = $stmt->fetch(PDO::FETCH_ASSOC);
     $pro_name = $rec['name'];
     $pro_price = $rec['price'];
+    $pro_gazou_name = $rec['gazou'];
+
+    if($pro_gazou_name == ''){
+        $disp_gazou = '';
+    } else {
+        $disp_gazou='<img src="./gazou/'.$pro_gazou_name.'">';
+    }
 
 } catch(Exception $e) {
     exit();
 }
+
+
 
 ?>
 
@@ -36,6 +45,9 @@ try{
     <br>
     <p>価格</p>
     <?php print $pro_price; ?>
+    <br>
+    <p>画像</p>
+    <?php print $disp_gazou; ?>
     <br>
     <form>
         <input type="button" onclick="history.back()" value="戻る">
