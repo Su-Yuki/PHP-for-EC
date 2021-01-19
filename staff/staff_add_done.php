@@ -8,7 +8,7 @@ $staff_pass = $_POST["pass"];
 // DBへのデータ保存
 try{
 $stmt = $dbh->prepare('INSERT INTO mst_staff(name, password) VALUES (?, ?)');
-$stmt->execute([$staff_name, $staff_pass]);//?を変数に置き換えてSQLを実行
+$stmt->execute([$staff_name, $staff_pass]);
 
 print "$staff_name さんを追加しました。";
 } catch(Exception $e){

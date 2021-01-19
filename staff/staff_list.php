@@ -26,6 +26,8 @@ try{
     print '<input type="submit" name="edit" value="修正">';
     print '<input type="submit" name="delete" value="削除">';
     print '</form>';
+    print '<br />';
+    print '<a href="../staff_login/staff_top.php">トップメニューへ</a>';
 } catch(Exception $e) {
     print "ただいま障害により大変ご迷惑をおかけしております。";
     exit;
