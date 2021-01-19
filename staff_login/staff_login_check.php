@@ -6,7 +6,6 @@ require_once('../common/function.php');
 $staff_code = h($_POST['code']);
 $staff_pass = h($_POST['pass']);
 
-
 $staff_pass = md5($staff_pass);
 
 try{
@@ -19,6 +18,10 @@ try{
         print 'スタッフコードが間違っています。<br />';
         print '<a href="staff_login.html"></a>';
     } else {
+        session_start();
+        $_SESSION['login'] = 1;
+        $_SESSION['staff_code'] = $staff_code;
+        $_SESSION['staff_name'] = $rec['name'];
         header('Location:staff_top.php');
         exit();
     }
