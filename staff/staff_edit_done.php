@@ -1,6 +1,14 @@
 <?php
-require_once('../common/dbconnect.php');
-require_once('../common/function.php');
+session_start();
+session_regenerate_id(true);
+if(isset($_SESSION['login'])==false){
+    print 'ログインされていません。<br />';
+    print '<a href="../staff_login/staff_login.html">ログイン画面へ</a>';
+    exit();
+}
+
+require_once('dbconnect.php');
+require_once('function.php');
 
 $staff_code = $_POST["code"];
 $staff_name = $_POST["name"];
