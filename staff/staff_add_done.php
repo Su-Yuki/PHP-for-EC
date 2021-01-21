@@ -10,8 +10,9 @@ if(isset($_SESSION['login'])==false){
 require_once('../common/dbconnect.php');
 require_once('../common/function.php');
 
-$staff_name = $_POST["name"];
-$staff_pass = $_POST["pass"];
+$post = sanitize($_POST);
+$staff_name = $post["name"];
+$staff_pass = $post["pass"];
 
 // DBへのデータ保存
 try{

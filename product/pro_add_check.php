@@ -12,8 +12,9 @@ require_once('../common/dbconnect.php');
 require_once('../common/function.php');
 
 //データ受け取り
-$pro_name = $_POST["name"];
-$pro_price = $_POST["price"];
+$post = sanitize($_POST);
+$pro_name = $post["name"];
+$pro_price = $post["price"];
 $pro_gazou = $_FILES["gazou"];
 
 // var_dump($pro_gazou);exit;

@@ -1,11 +1,4 @@
 <?php
-session_start();
-session_regenerate_id(true);
-if(isset($_SESSION['login'])==false){
-    print 'ログインされていません。<br />';
-    print '<a href="../staff_login/staff_login.html">ログイン画面へ</a>';
-    exit();
-}
 
 //共通
 require_once('../common/dbconnect.php');
@@ -24,7 +17,7 @@ try{
 
     if($rec == false){
         print 'スタッフコードが間違っています。<br />';
-        print '<a href="staff_login.html"></a>';
+        print '<a href="staff_login.html">戻る</a>';
     } else {
         session_start();
         $_SESSION['login'] = 1;

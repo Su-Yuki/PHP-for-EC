@@ -11,9 +11,10 @@ if(isset($_SESSION['login'])==false){
 require_once('../common/dbconnect.php');
 require_once('../common/function.php');
 
-$pro_name = $_POST["name"];
-$pro_price = $_POST["price"];
-$pro_gazou_name = $_POST["gazou_name"];
+$post = sanitize($_POST);
+$pro_name = $post["name"];
+$pro_price = $post["price"];
+$pro_gazou_name = $post["gazou_name"];
 
 // DBへのデータ保存
 try{

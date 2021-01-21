@@ -10,9 +10,10 @@ if(isset($_SESSION['login'])==false){
 require_once('dbconnect.php');
 require_once('function.php');
 
-$staff_code = $_POST["code"];
-$staff_name = $_POST["name"];
-$staff_pass = $_POST["pass"];
+$post = sanitize($_POST);
+$staff_code = $post["code"];
+$staff_name = $post["name"];
+$staff_pass = $post["pass"];
 
 try{
 $stmt = $dbh->prepare('UPDATE mst_staff SET name = ?, password = ? WHERE code = ?');
