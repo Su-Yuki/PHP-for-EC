@@ -10,7 +10,7 @@ if(isset($_SESSION['member_login'])==false){
     print '$_SESSION["member_name"]';
     print '様';
     print '<a href="member_logout.php">ログアウト</a>';
-    print '<br />';
+    print '<br />';    
 }
 
 require_once('../common/dbconnect.php');
@@ -28,23 +28,27 @@ try{
         if($rec == false){
         break;
         }
-        print '<a herf="shop_product.php?procode"="'.$rec['code'].'">';
-        print $rec["name"]."----";
-        print $rec["price"]."円";
-        print"<br />";
-        
+        print '<a href="shop_product.php?procode='.$rec['code'].'">';
+        print $rec["name"].'----';
+        print $rec["price"].'円';
+        print '</a>';
+        print '<br />';
     }
-
-    print '<input type="submit" name="disp" value="参照">';
-    print '<input type="submit" name="add" value="追加">';
-    print '<input type="submit" name="edit" value="修正">';
-    print '<input type="submit" name="delete" value="削除">';
-    print '</form>';
-    print '<br />';
-    print '<a href="../staff_login/staff_top.php">トップメニューへ</a>';
 } catch(Exception $e) {
     print "ただいま障害により大変ご迷惑をおかけしております。";
-    exit;
+    exit();
 }
 
 ?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <br>
+    <a href="shop_cartlook.php">カートを見る</a>
+</body>
+</html>
